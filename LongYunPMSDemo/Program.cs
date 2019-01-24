@@ -14,9 +14,9 @@ namespace LongYunPMSDemo
         {
             // 接口测试
             #region 初始化
-            var baseUrl = "https://api.pms.com";
-            var partnerId = "10001";
-            var hotelCode = "2001";
+            var baseUrl = "http://117.78.35.234:8980/pmsweb/crsapi.svc";
+            var partnerId = "test";
+            var hotelCode = "dycxd";
             var pms = new LYPMS(baseUrl, partnerId, hotelCode);
             var rst = string.Empty;
             #endregion
@@ -31,9 +31,10 @@ namespace LongYunPMSDemo
 
             #region 预订查询
             {
-                var name = "liuzhenhua";
-                var mobile = "1324";
-                var resvsum = "1000";
+                var name = "李毅";
+                //var name = System.Web.HttpUtility.UrlEncode("李毅");
+                var mobile = "13810338990";
+                var resvsum = "10498"; 
                 rst = pms.Resvlist(name, mobile, resvsum);
                 Console.WriteLine($"Resvlist::");
                 Console.WriteLine($"{rst}");
@@ -42,11 +43,13 @@ namespace LongYunPMSDemo
 
             #region 押金/支付
             {
-                var acctnum = "1111";
+                var acctnum = "10498";
                 var paytype = "0";
                 var payamt = "1200";
-                var paycode = "YMX";
-                var payinfo = "12DSFASD45S6DF2SFADF";
+                // 0300 支付宝
+                // 0301 微信
+                var paycode = "0300";
+                var payinfo = "支付宝";
                 rst = pms.Paydeposit(acctnum, paytype, payamt, paycode, payinfo);
 
                 Console.WriteLine($"GetPaydeposit::");
@@ -56,10 +59,10 @@ namespace LongYunPMSDemo
 
             #region 预订开房
             {
-                var acctnum = "1111";
+                var acctnum = "Liuzh";
                 var checkin = new ResvCheckin
                 {
-                    Name = "Liuzhenhua",
+                    Name = "李毅",
                     CertNum = "110226",
                     Gender = null,
                     Nationality = string.Empty,
