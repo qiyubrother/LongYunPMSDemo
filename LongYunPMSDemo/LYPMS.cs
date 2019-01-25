@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 
 namespace LongYunPMSDemo
 {
-    public class LYPMS
+    public class LYPMS 
     {
         
         public LYPMS(string baseURL, string partnerId, string hotelCode)
@@ -64,7 +64,26 @@ namespace LongYunPMSDemo
         {
             var timestamp = GetTimestamp();
             var url = $"{BaseUrl}/resvcheckin?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctnum={acctnum}";
-            return GetResponse(url);
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.ContentType = "application/json";
+            request.Method = "POST";
+
+            File.AppendAllLines(@"d:\debug.txt", new[] {"URL::", url, string.Empty });
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(resvCheckin);
+                File.AppendAllLines(@"d:\debug.txt", new[] { "POST BODY JSON::", json, string.Empty });
+                streamWriter.Write(json);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                var rst = streamReader.ReadToEnd();
+                File.AppendAllLines(@"d:\debug.txt", new[] { "Result::", rst, string.Empty });
+                return rst;
+            }
         }
         #endregion
 
@@ -90,7 +109,7 @@ namespace LongYunPMSDemo
         public string GetcheckoutFolio(string acctnum)
         {
             var timestamp = GetTimestamp();
-            var url = $"{BaseUrl}/getcheckoutfolio?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctmnum={acctnum}";
+            var url = $"{BaseUrl}/getcheckoutfolio?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctnum={acctnum}";
             return GetResponse(url);
         }
         #endregion
@@ -99,7 +118,7 @@ namespace LongYunPMSDemo
         public string Checkout(string acctnum)
         {
             var timestamp = GetTimestamp();
-            var url = $"{BaseUrl}/checkout?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctmnum={acctnum}";
+            var url = $"{BaseUrl}/checkout?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctnum={acctnum}";
             return GetResponse(url);
         }
         #endregion
@@ -151,9 +170,24 @@ namespace LongYunPMSDemo
         public string HotelCode { private set; get; }
         public string PartnerId { private set; get; }
     }
-
     [Serializable]
     public class ResvCheckin
+    {
+        [JsonProperty("guestinfo")]
+        public ResvCheckinItem[] guestinfo = new ResvCheckinItem[1];
+    }
+
+    [Serializable]
+    public class ResvCheckinItem
+    {
+        [JsonProperty("GuestId")]
+        public int GuestId { get; set; }
+        [JsonProperty("GuestInfo")]
+        public GuestInfo GuestInfo { get; set; }
+    }
+
+    [Serializable]
+    public class GuestInfo
     {
         /// <summary>
         /// 姓名
@@ -165,6 +199,11 @@ namespace LongYunPMSDemo
         /// </summary>
         [JsonProperty("CertNum")]
         public string CertNum { get; set; }
+        /// <summary>
+        /// 证件类型
+        /// </summary>
+        [JsonProperty("CertType")]
+        public string CertType { get; set; }
         /// <summary>
         /// 性别
         /// </summary>

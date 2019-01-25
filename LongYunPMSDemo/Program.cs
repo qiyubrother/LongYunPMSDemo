@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using NNHuman.PMS;
 
 namespace LongYunPMSDemo
 {
@@ -12,6 +14,10 @@ namespace LongYunPMSDemo
     {
         static void Main(string[] args)
         {
+            //Application.Run(new FrmMain());
+
+            //return;
+
             // 接口测试
             #region 初始化
             var baseUrl = "http://117.78.35.234:8980/pmsweb/crsapi.svc";
@@ -21,7 +27,7 @@ namespace LongYunPMSDemo
             var rst = string.Empty;
             #endregion
 
-            #region 获取服务器时间戳
+            #region 获取服务器时间戳 Pass
             {
                 rst = pms.Timestamp();
                 Console.WriteLine($"Timestamp::");
@@ -29,23 +35,41 @@ namespace LongYunPMSDemo
             }
             #endregion
 
-            #region 预订查询
+            #region 预订查询 Pass
             {
                 var name = "李毅";
-                //var name = System.Web.HttpUtility.UrlEncode("李毅");
                 var mobile = "13810338990";
                 var resvsum = "10498"; 
                 rst = pms.Resvlist(name, mobile, resvsum);
                 Console.WriteLine($"Resvlist::");
                 Console.WriteLine($"{rst}");
             }
+            {
+                var name = "银卡测试";
+                //var name = System.Web.HttpUtility.UrlEncode("李毅");
+                var mobile = "13910338990";
+                var resvsum = "10519";
+                rst = pms.Resvlist(name, mobile, resvsum);
+                Console.WriteLine($"Resvlist::");
+                Console.WriteLine($"{rst}");
+            }
+            {
+                var name = "预定测试";
+                //var name = System.Web.HttpUtility.UrlEncode("李毅");
+                var mobile = "18510338990";
+                var resvsum = "10519";
+                rst = pms.Resvlist(name, mobile, resvsum);
+                Console.WriteLine($"Resvlist::");
+                Console.WriteLine($"{rst}");
+            }
             #endregion
 
-            #region 押金/支付
+            #region 押金/支付  NoPass
+            if (false)
             {
-                var acctnum = "10498";
+                var acctnum = "10519"; // "10498";
                 var paytype = "0";
-                var payamt = "1200";
+                var payamt = "-1200";
                 // 0300 支付宝
                 // 0301 微信
                 var paycode = "0300";
@@ -58,13 +82,18 @@ namespace LongYunPMSDemo
             #endregion
 
             #region 预订开房
+            if (false)
             {
-                var acctnum = "Liuzh";
-                var checkin = new ResvCheckin
+                var acctnum = "10552";
+                var resvCheckin = new ResvCheckin();
+                var checkinItem = new ResvCheckinItem();
+                checkinItem.GuestId = 173433; // 预定查询的m_Item1数据项
+                checkinItem.GuestInfo = new GuestInfo
                 {
-                    Name = "李毅",
-                    CertNum = "110226",
-                    Gender = null,
+                    Name = "预定测试",
+                    CertNum = "110226198308281416",
+                    CertType ="11",
+                    Gender = 1,
                     Nationality = string.Empty,
                     Birthday = string.Empty,
                     Address = string.Empty,
@@ -72,17 +101,19 @@ namespace LongYunPMSDemo
                     ValidTime = string.Empty,
                     Picture = string.Empty
                 };
-                rst = pms.Resvcheckin(acctnum, checkin);
+                resvCheckin.guestinfo[0] = checkinItem;
+                rst = pms.Resvcheckin(acctnum, resvCheckin);
 
                 Console.WriteLine($"Resvcheckin::");
                 Console.WriteLine($"{rst}");
             }
             #endregion
-
-            #region 上传房卡信息
+            
+            #region 上传房卡信息 Pass
+            if (false)
             {
-                var acctnum = "1111";
-                var keynum = "0";
+                var acctnum = "10552";
+                var keynum = "0101";
                 rst = pms.UploadrMKey(acctnum, keynum);
 
                 Console.WriteLine($"UploadrMKey::");
@@ -90,10 +121,11 @@ namespace LongYunPMSDemo
             }
             #endregion
 
-            #region 查询在店客人账号
+            #region 查询在店客人账号 Pass
+            if (false)
             {
-                var roomnum = "1111";
-                var mobile = "1324";
+                var roomnum = "907";
+                var mobile = "13910338990";
                 var certnum = "";
                 rst = pms.GetAccnum(roomnum, mobile, certnum);
 
@@ -103,8 +135,9 @@ namespace LongYunPMSDemo
             #endregion
 
             #region 获取结账账单
+            if (false)
             {
-                var acctnum = "1111";
+                var acctnum = "10552";
                 rst = pms.GetcheckoutFolio(acctnum);
 
                 Console.WriteLine($"GetcheckoutFolio::");
@@ -114,7 +147,7 @@ namespace LongYunPMSDemo
 
             #region 结账
             {
-                var acctnum = "1111";
+                var acctnum = "10552";
                 rst = pms.Checkout(acctnum);
 
                 Console.WriteLine($"Checkout::");
