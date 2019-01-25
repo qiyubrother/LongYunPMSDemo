@@ -14,9 +14,9 @@ namespace LongYunPMSDemo
     {
         static void Main(string[] args)
         {
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmMain());
 
-            //return;
+            return;
 
             // 接口测试
             #region 初始化

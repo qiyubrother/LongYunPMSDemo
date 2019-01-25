@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LongYunPMSDemo.Views;
 
 namespace LongYunPMSDemo
 {
@@ -15,6 +16,11 @@ namespace LongYunPMSDemo
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void btnTimestamp_Click(object sender, EventArgs e)
+        {
+            (new FrmTimestamp()).ShowDialog();
         }
     }
 }
