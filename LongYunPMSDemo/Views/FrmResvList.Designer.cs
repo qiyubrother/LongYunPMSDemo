@@ -91,6 +91,8 @@
             // 
             // txtRequiredURL
             // 
+            this.txtRequiredURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRequiredURL.Location = new System.Drawing.Point(94, 39);
             this.txtRequiredURL.Name = "txtRequiredURL";
             this.txtRequiredURL.ReadOnly = true;

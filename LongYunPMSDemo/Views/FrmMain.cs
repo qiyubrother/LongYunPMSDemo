@@ -62,5 +62,10 @@ namespace LongYunPMSDemo
         {
             (new FrmResvCheckin()).ShowDialog();
         }
+
+        private void btnUPloadRMKey_Click(object sender, EventArgs e)
+        {
+            (new FrmUploadRMKey()).ShowDialog();
+        }
     }
 }

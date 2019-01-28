@@ -68,12 +68,12 @@ namespace LongYunPMSDemo
             request.ContentType = "application/json";
             request.Method = "POST";
 
-            File.AppendAllLines(@"d:\debug.txt", new[] {"URL::", url, string.Empty });
+            //File.AppendAllLines(@"d:\debug.txt", new[] {"URL::", url, string.Empty });
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = JsonConvert.SerializeObject(resvCheckin);
-                File.AppendAllLines(@"d:\debug.txt", new[] { "POST BODY JSON::", json, string.Empty });
+                //File.AppendAllLines(@"d:\debug.txt", new[] { "POST BODY JSON::", json, string.Empty });
                 streamWriter.Write(json);
             }
 
@@ -81,14 +81,14 @@ namespace LongYunPMSDemo
             using (var streamReader = new StreamReader(response.GetResponseStream()))
             {
                 var rst = streamReader.ReadToEnd();
-                File.AppendAllLines(@"d:\debug.txt", new[] { "Result::", rst, string.Empty });
+                //File.AppendAllLines(@"d:\debug.txt", new[] { "Result::", rst, string.Empty });
                 return rst;
             }
         }
         #endregion
 
         #region 上传房卡信息 Get
-        public string UploadrMKey(string acctnum, string keynum)
+        public string UploadRMKey(string acctnum, string keynum)
         {
             var timestamp = GetTimestamp();
             var url = $"{BaseUrl}/uploadrmkey?partner_id={PartnerId}&hotel_code={HotelCode}&timestamp={timestamp}&secret={Secret(timestamp)}&acctnum={acctnum}&keynum={keynum}";

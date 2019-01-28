@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmUploadRMKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUploadRMKey.Designer.cs">
+      <DependentUpon>FrmUploadRMKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="SysEnvironment.cs" />
     <Compile Include="Views\FrmCheckout.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmUploadRMKey.resx">
+      <DependentUpon>FrmUploadRMKey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCheckout.resx">
       <DependentUpon>FrmCheckout.cs</DependentUpon>
     </EmbeddedResource>

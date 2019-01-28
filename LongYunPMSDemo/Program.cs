@@ -114,7 +114,7 @@ namespace LongYunPMSDemo
             {
                 var acctnum = "10552";
                 var keynum = "0101";
-                rst = pms.UploadrMKey(acctnum, keynum);
+                rst = pms.UploadRMKey(acctnum, keynum);
 
                 Console.WriteLine($"UploadrMKey::");
                 Console.WriteLine($"{rst}");

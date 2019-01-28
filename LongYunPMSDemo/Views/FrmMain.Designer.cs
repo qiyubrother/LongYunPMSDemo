@@ -34,7 +34,7 @@ namespace LongYunPMSDemo
             this.btnResvList = new System.Windows.Forms.Button();
             this.buttonX2 = new System.Windows.Forms.Button();
             this.btnResvcheckin = new System.Windows.Forms.Button();
-            this.buttonX4 = new System.Windows.Forms.Button();
+            this.btnUPloadRMKey = new System.Windows.Forms.Button();
             this.buttonX5 = new System.Windows.Forms.Button();
             this.buttonX6 = new System.Windows.Forms.Button();
             this.buttonX7 = new System.Windows.Forms.Button();
@@ -80,14 +80,15 @@ namespace LongYunPMSDemo
             this.btnResvcheckin.UseVisualStyleBackColor = false;
             this.btnResvcheckin.Click += new System.EventHandler(this.btnResvcheckin_Click);
             // 
-            // buttonX4
+            // btnUPloadRMKey
             // 
-            this.buttonX4.Location = new System.Drawing.Point(12, 212);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(178, 44);
-            this.buttonX4.TabIndex = 2;
-            this.buttonX4.Text = "上传房卡信息";
-            this.buttonX4.UseVisualStyleBackColor = false;
+            this.btnUPloadRMKey.Location = new System.Drawing.Point(12, 212);
+            this.btnUPloadRMKey.Name = "btnUPloadRMKey";
+            this.btnUPloadRMKey.Size = new System.Drawing.Size(178, 44);
+            this.btnUPloadRMKey.TabIndex = 2;
+            this.btnUPloadRMKey.Text = "上传房卡信息";
+            this.btnUPloadRMKey.UseVisualStyleBackColor = false;
+            this.btnUPloadRMKey.Click += new System.EventHandler(this.btnUPloadRMKey_Click);
             // 
             // buttonX5
             // 
@@ -135,7 +136,7 @@ namespace LongYunPMSDemo
             this.Controls.Add(this.buttonX7);
             this.Controls.Add(this.buttonX6);
             this.Controls.Add(this.buttonX5);
-            this.Controls.Add(this.buttonX4);
+            this.Controls.Add(this.btnUPloadRMKey);
             this.Controls.Add(this.btnResvcheckin);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.btnResvList);
@@ -153,7 +154,7 @@ namespace LongYunPMSDemo
         private Button btnResvList;
         private Button buttonX2;
         private Button btnResvcheckin;
-        private Button buttonX4;
+        private Button btnUPloadRMKey;
         private Button buttonX5;
         private Button buttonX6;
         private Button buttonX7;
