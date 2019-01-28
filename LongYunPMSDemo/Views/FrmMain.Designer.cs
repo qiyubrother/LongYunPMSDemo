@@ -30,15 +30,15 @@ namespace LongYunPMSDemo
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnTimestamp = new Button();
-            this.buttonX1 = new Button();
-            this.buttonX2 = new Button();
-            this.buttonX3 = new Button();
-            this.buttonX4 = new Button();
-            this.buttonX5 = new Button();
-            this.buttonX6 = new Button();
-            this.buttonX7 = new Button();
+            this.btnTimestamp = new System.Windows.Forms.Button();
+            this.btnResvList = new System.Windows.Forms.Button();
+            this.buttonX2 = new System.Windows.Forms.Button();
+            this.buttonX3 = new System.Windows.Forms.Button();
+            this.buttonX4 = new System.Windows.Forms.Button();
+            this.buttonX5 = new System.Windows.Forms.Button();
+            this.buttonX6 = new System.Windows.Forms.Button();
+            this.buttonX7 = new System.Windows.Forms.Button();
+            this.btnSetup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTimestamp
@@ -51,14 +51,15 @@ namespace LongYunPMSDemo
             this.btnTimestamp.UseVisualStyleBackColor = false;
             this.btnTimestamp.Click += new System.EventHandler(this.btnTimestamp_Click);
             // 
-            // buttonX1
+            // btnResvList
             // 
-            this.buttonX1.Location = new System.Drawing.Point(12, 62);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(178, 44);
-            this.buttonX1.TabIndex = 2;
-            this.buttonX1.Text = "预订查询";
-            this.buttonX1.UseVisualStyleBackColor = false;
+            this.btnResvList.Location = new System.Drawing.Point(12, 62);
+            this.btnResvList.Name = "btnResvList";
+            this.btnResvList.Size = new System.Drawing.Size(178, 44);
+            this.btnResvList.TabIndex = 2;
+            this.btnResvList.Text = "预订查询";
+            this.btnResvList.UseVisualStyleBackColor = false;
+            this.btnResvList.Click += new System.EventHandler(this.btnResvList_Click);
             // 
             // buttonX2
             // 
@@ -114,18 +115,29 @@ namespace LongYunPMSDemo
             this.buttonX7.Text = "结账";
             this.buttonX7.UseVisualStyleBackColor = false;
             // 
+            // btnSetup
+            // 
+            this.btnSetup.Location = new System.Drawing.Point(12, 412);
+            this.btnSetup.Name = "btnSetup";
+            this.btnSetup.Size = new System.Drawing.Size(178, 44);
+            this.btnSetup.TabIndex = 3;
+            this.btnSetup.Text = "设置";
+            this.btnSetup.UseVisualStyleBackColor = false;
+            this.btnSetup.Click += new System.EventHandler(this.btnSetup_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 469);
+            this.Controls.Add(this.btnSetup);
             this.Controls.Add(this.buttonX7);
             this.Controls.Add(this.buttonX6);
             this.Controls.Add(this.buttonX5);
             this.Controls.Add(this.buttonX4);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.buttonX2);
-            this.Controls.Add(this.buttonX1);
+            this.Controls.Add(this.btnResvList);
             this.Controls.Add(this.btnTimestamp);
             this.Name = "FrmMain";
             this.Text = "龙云PMS和自助机Check-In设备接口 测试工具";
@@ -136,12 +148,13 @@ namespace LongYunPMSDemo
         #endregion
 
         private Button btnTimestamp;
-        private Button buttonX1;
+        private Button btnResvList;
         private Button buttonX2;
         private Button buttonX3;
         private Button buttonX4;
         private Button buttonX5;
         private Button buttonX6;
         private Button buttonX7;
+        private Button btnSetup;
     }
 }

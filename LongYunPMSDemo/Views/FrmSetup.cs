@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LongYunPMSDemo.Views
 {
-    public partial class FrmTimestamp : Form
+    public partial class FrmSetup : Form
     {
-        public FrmTimestamp()
+        public FrmSetup()
         {
             InitializeComponent();
         }
@@ -22,12 +22,17 @@ namespace LongYunPMSDemo.Views
             base.OnShown(e);
 
             txtBaseURL.Text = SysEnvironment.BaseURL;
+            txtPartnerId.Text = SysEnvironment.partner_Id;
+            txtHotelCode.Text = SysEnvironment.hotel_code;
         }
 
-        private void btnAction_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            var pms = new LYPMS(txtBaseURL.Text, SysEnvironment.partner_Id, SysEnvironment.hotel_code);
-            txtResult.Text = pms.Timestamp();
+            SysEnvironment.BaseURL = txtBaseURL.Text;
+            SysEnvironment.partner_Id = txtPartnerId.Text;
+            SysEnvironment.hotel_code = txtHotelCode.Text;
+            MessageBox.Show("OK");
+            Close();
         }
     }
 }
