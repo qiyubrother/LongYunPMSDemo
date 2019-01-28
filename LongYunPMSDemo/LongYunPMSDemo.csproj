@@ -84,6 +84,12 @@
     <Compile Include="LYPMS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmResvCheckin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmResvCheckin.Designer.cs">
+      <DependentUpon>FrmResvCheckin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmResvList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmResvCheckin.resx">
+      <DependentUpon>FrmResvCheckin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmResvList.resx">
       <DependentUpon>FrmResvList.cs</DependentUpon>

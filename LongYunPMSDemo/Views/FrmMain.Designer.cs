@@ -33,7 +33,7 @@ namespace LongYunPMSDemo
             this.btnTimestamp = new System.Windows.Forms.Button();
             this.btnResvList = new System.Windows.Forms.Button();
             this.buttonX2 = new System.Windows.Forms.Button();
-            this.buttonX3 = new System.Windows.Forms.Button();
+            this.btnResvcheckin = new System.Windows.Forms.Button();
             this.buttonX4 = new System.Windows.Forms.Button();
             this.buttonX5 = new System.Windows.Forms.Button();
             this.buttonX6 = new System.Windows.Forms.Button();
@@ -70,14 +70,15 @@ namespace LongYunPMSDemo
             this.buttonX2.Text = "押金/支付";
             this.buttonX2.UseVisualStyleBackColor = false;
             // 
-            // buttonX3
+            // btnResvcheckin
             // 
-            this.buttonX3.Location = new System.Drawing.Point(12, 162);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(178, 44);
-            this.buttonX3.TabIndex = 2;
-            this.buttonX3.Text = "预订开房";
-            this.buttonX3.UseVisualStyleBackColor = false;
+            this.btnResvcheckin.Location = new System.Drawing.Point(12, 162);
+            this.btnResvcheckin.Name = "btnResvcheckin";
+            this.btnResvcheckin.Size = new System.Drawing.Size(178, 44);
+            this.btnResvcheckin.TabIndex = 2;
+            this.btnResvcheckin.Text = "预订开房";
+            this.btnResvcheckin.UseVisualStyleBackColor = false;
+            this.btnResvcheckin.Click += new System.EventHandler(this.btnResvcheckin_Click);
             // 
             // buttonX4
             // 
@@ -135,11 +136,12 @@ namespace LongYunPMSDemo
             this.Controls.Add(this.buttonX6);
             this.Controls.Add(this.buttonX5);
             this.Controls.Add(this.buttonX4);
-            this.Controls.Add(this.buttonX3);
+            this.Controls.Add(this.btnResvcheckin);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.btnResvList);
             this.Controls.Add(this.btnTimestamp);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "龙云PMS和自助机Check-In设备接口 测试工具";
             this.ResumeLayout(false);
 
@@ -150,7 +152,7 @@ namespace LongYunPMSDemo
         private Button btnTimestamp;
         private Button btnResvList;
         private Button buttonX2;
-        private Button buttonX3;
+        private Button btnResvcheckin;
         private Button buttonX4;
         private Button buttonX5;
         private Button buttonX6;

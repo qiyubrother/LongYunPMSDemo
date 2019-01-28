@@ -57,5 +57,10 @@ namespace LongYunPMSDemo
 
             File.WriteAllText("config.json", JsonConvert.SerializeObject(jo));
         }
+
+        private void btnResvcheckin_Click(object sender, EventArgs e)
+        {
+            (new FrmResvCheckin()).ShowDialog();
+        }
     }
 }
