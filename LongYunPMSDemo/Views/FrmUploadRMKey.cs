@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LongYunPMSDemo.Views
+namespace LongYunPMSDemo
 {
-    public partial class FrmCheckout : Form
+    public partial class FrmUploadRMKey : Form
     {
-        public FrmCheckout()
+        public FrmUploadRMKey()
         {
             InitializeComponent();
         }
@@ -27,8 +27,14 @@ namespace LongYunPMSDemo.Views
 
         private void btnAction_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtPMSAccount.Text))
+            {
+                MessageBox.Show("无效的PMS账号");
+                return;
+            }
             var pms = new LYPMS(txtBaseURL.Text, SysEnvironment.partner_Id, SysEnvironment.hotel_code);
-            txtResult.Text = pms.Checkout(txtPMSAccountNum.Text);
+            txtResult.Text = pms.UploadRMKey(txtPMSAccount.Text, txtCardNum.Text);
+
         }
     }
 }

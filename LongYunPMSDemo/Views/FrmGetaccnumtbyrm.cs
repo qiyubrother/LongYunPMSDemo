@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace LongYunPMSDemo
 {
-    public partial class FrmUploadRMKey : Form
+    public partial class FrmGetaccnumtbyrm : Form
     {
-        public FrmUploadRMKey()
+        public FrmGetaccnumtbyrm()
         {
             InitializeComponent();
         }
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
@@ -28,8 +29,8 @@ namespace LongYunPMSDemo
         private void btnAction_Click(object sender, EventArgs e)
         {
             var pms = new LYPMS(txtBaseURL.Text, SysEnvironment.partner_Id, SysEnvironment.hotel_code);
-            txtResult.Text = pms.UploadRMKey(txtPMSAccount.Text, txtCardNum.Text);
-
+            txtResult.Text = pms.GetAccnum(txtRoomNum.Text, txtMobile.Text, txtCertNum.Text);
         }
+
     }
 }

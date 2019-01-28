@@ -35,8 +35,8 @@ namespace LongYunPMSDemo
             this.buttonX2 = new System.Windows.Forms.Button();
             this.btnResvcheckin = new System.Windows.Forms.Button();
             this.btnUPloadRMKey = new System.Windows.Forms.Button();
-            this.buttonX5 = new System.Windows.Forms.Button();
-            this.buttonX6 = new System.Windows.Forms.Button();
+            this.btnGetaccnumtbyrm = new System.Windows.Forms.Button();
+            this.btnGetcheckoutfolio = new System.Windows.Forms.Button();
             this.buttonX7 = new System.Windows.Forms.Button();
             this.btnSetup = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -90,23 +90,25 @@ namespace LongYunPMSDemo
             this.btnUPloadRMKey.UseVisualStyleBackColor = false;
             this.btnUPloadRMKey.Click += new System.EventHandler(this.btnUPloadRMKey_Click);
             // 
-            // buttonX5
+            // btnGetaccnumtbyrm
             // 
-            this.buttonX5.Location = new System.Drawing.Point(12, 262);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(178, 44);
-            this.buttonX5.TabIndex = 2;
-            this.buttonX5.Text = "查询在店客人账号";
-            this.buttonX5.UseVisualStyleBackColor = false;
+            this.btnGetaccnumtbyrm.Location = new System.Drawing.Point(12, 262);
+            this.btnGetaccnumtbyrm.Name = "btnGetaccnumtbyrm";
+            this.btnGetaccnumtbyrm.Size = new System.Drawing.Size(178, 44);
+            this.btnGetaccnumtbyrm.TabIndex = 2;
+            this.btnGetaccnumtbyrm.Text = "查询在店客人账号";
+            this.btnGetaccnumtbyrm.UseVisualStyleBackColor = false;
+            this.btnGetaccnumtbyrm.Click += new System.EventHandler(this.btnGetaccnumtbyrm_Click);
             // 
-            // buttonX6
+            // btnGetcheckoutfolio
             // 
-            this.buttonX6.Location = new System.Drawing.Point(12, 312);
-            this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(178, 44);
-            this.buttonX6.TabIndex = 2;
-            this.buttonX6.Text = "获取结账账单";
-            this.buttonX6.UseVisualStyleBackColor = false;
+            this.btnGetcheckoutfolio.Location = new System.Drawing.Point(12, 312);
+            this.btnGetcheckoutfolio.Name = "btnGetcheckoutfolio";
+            this.btnGetcheckoutfolio.Size = new System.Drawing.Size(178, 44);
+            this.btnGetcheckoutfolio.TabIndex = 2;
+            this.btnGetcheckoutfolio.Text = "获取结账账单";
+            this.btnGetcheckoutfolio.UseVisualStyleBackColor = false;
+            this.btnGetcheckoutfolio.Click += new System.EventHandler(this.btnGetcheckoutfolio_Click);
             // 
             // buttonX7
             // 
@@ -116,6 +118,7 @@ namespace LongYunPMSDemo
             this.buttonX7.TabIndex = 2;
             this.buttonX7.Text = "结账";
             this.buttonX7.UseVisualStyleBackColor = false;
+            this.buttonX7.Click += new System.EventHandler(this.buttonX7_Click);
             // 
             // btnSetup
             // 
@@ -134,8 +137,8 @@ namespace LongYunPMSDemo
             this.ClientSize = new System.Drawing.Size(800, 469);
             this.Controls.Add(this.btnSetup);
             this.Controls.Add(this.buttonX7);
-            this.Controls.Add(this.buttonX6);
-            this.Controls.Add(this.buttonX5);
+            this.Controls.Add(this.btnGetcheckoutfolio);
+            this.Controls.Add(this.btnGetaccnumtbyrm);
             this.Controls.Add(this.btnUPloadRMKey);
             this.Controls.Add(this.btnResvcheckin);
             this.Controls.Add(this.buttonX2);
@@ -155,8 +158,8 @@ namespace LongYunPMSDemo
         private Button buttonX2;
         private Button btnResvcheckin;
         private Button btnUPloadRMKey;
-        private Button buttonX5;
-        private Button buttonX6;
+        private Button btnGetaccnumtbyrm;
+        private Button btnGetcheckoutfolio;
         private Button buttonX7;
         private Button btnSetup;
     }

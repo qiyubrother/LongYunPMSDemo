@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LongYunPMSDemo.Views
+namespace LongYunPMSDemo
 {
-    public partial class FrmCheckout : Form
+    public partial class FrmGetcheckoutfolio : Form
     {
-        public FrmCheckout()
+        public FrmGetcheckoutfolio()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace LongYunPMSDemo.Views
         private void btnAction_Click(object sender, EventArgs e)
         {
             var pms = new LYPMS(txtBaseURL.Text, SysEnvironment.partner_Id, SysEnvironment.hotel_code);
-            txtResult.Text = pms.Checkout(txtPMSAccountNum.Text);
+            txtResult.Text = pms.GetcheckoutFolio(txtPMSAccountNum.Text);
         }
     }
 }

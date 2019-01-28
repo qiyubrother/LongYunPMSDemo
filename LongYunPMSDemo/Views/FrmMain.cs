@@ -67,5 +67,20 @@ namespace LongYunPMSDemo
         {
             (new FrmUploadRMKey()).ShowDialog();
         }
+
+        private void btnGetaccnumtbyrm_Click(object sender, EventArgs e)
+        {
+            (new FrmGetaccnumtbyrm()).ShowDialog();
+        }
+
+        private void btnGetcheckoutfolio_Click(object sender, EventArgs e)
+        {
+            (new FrmGetcheckoutfolio()).ShowDialog();
+        }
+
+        private void buttonX7_Click(object sender, EventArgs e)
+        {
+            (new FrmCheckout()).ShowDialog();
+        }
     }
 }
